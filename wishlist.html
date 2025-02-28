@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist | BookSwap</title>
+    <link rel="stylesheet" href="wishlist.css">
+    <script src="wishlist.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">📚 BookSwap</div>
+        <ul class="nav-links">
+            <li><a href="welcome.html">Home</a></li>
+            <li><a href="wishlist.html" class="active">Wishlist</a></li>
+            <li><a href="addBook.html">Add Book</a></li>
+        </ul>
+    </nav>
+
+    <!-- Wishlist Section -->
+    <section class="wishlist">
+        <h1>📌 My Wishlist</h1>
+        <p>Books you've saved for future reading and swapping</p>
+        <div class="wishlist-container">
+            <!-- Sample Wishlist Books -->
+            <div class="book-card">
+                <img src="The alchemist.webp" alt="Book 1">
+                <h3>The Alchemist</h3>
+                <p>by Paulo Coelho</p>
+                <button class="remove-btn">Remove</button>
+            </div>
+            <div class="book-card">
+                <img src="Atomic Habits.webp" alt="Book 2">
+                <h3>Atomic Habits</h3>
+                <p>by James Clear</p>
+                <button class="remove-btn">Remove</button>
+            </div>
+            <div class="book-card">
+                <img src="The subtle art.webp" alt="Book 3">
+                <h3>The Subtle Art of Not Giving a F*ck</h3>
+                <p>by Mark Manson</p>
+                <button class="remove-btn">Remove</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Home Button -->
+    <button class="home-btn" onclick="window.location.href='welcome.html'">🏠 Back to Home</button>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Book | BookSwap</title>
+    <link rel="stylesheet" href="addBook.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Add these under existing scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
+    
+</head>
+<body>
+
+    <div class="container">
+        <h1>📚 Add a New Book</h1>
+        <p>Share your book with the community!</p>
+
+        <!-- Book Entry Form -->
+        <form id="addBookForm">
+            <label for="bookName">Book Name:</label>
+            <input type="text" id="bookName" name="bookName" placeholder="Enter the book name" required>
+
+            <label>Book Genre:</label>
+            <div class="genre-container">
+                <button type="button" class="genre-btn" onclick="selectGenre(this)">Fiction</button>
+                <button type="button" class="genre-btn" onclick="selectGenre(this)">Non-Fiction</button>
+                <button type="button" class="genre-btn" onclick="selectGenre(this)">Sci-Fi</button>
+                <button type="button" class="genre-btn" onclick="selectGenre(this)">Mystery</button>
+                <button type="button" class="genre-btn" onclick="selectGenre(this)">Romance</button>
+                <button type="button" class="genre-btn" onclick="selectGenre(this)">Biography</button>
+                <button type="button" class="genre-btn" onclick="selectGenre(this)">Self-Help</button>
+                <button type="button" class="genre-btn" onclick="selectGenre(this)">Fantasy</button>
+            </div>
+            <input type="hidden" id="selectedGenre" name="selectedGenre">
+
+            <label for="authorName">Author Name:</label>
+            <input type="text" id="authorName" name="authorName" placeholder="Enter author's name" required>
+
+            <label for="description">Book Description:</label>
+            <textarea id="description" name="description" rows="4" placeholder="Write a short description about the book..." required></textarea>
+
+            <label for="bookCover">Upload Book Cover:</label>
+            <input type="file" id="bookCover" name="bookCover" accept="image/*">
+
+            <button type="submit">➕ Add Book</button>
+        </form>
+
+        <button class="back-btn" onclick="goBack()">⬅ Back to Welcome</button>
+    </div>
+
+    <script type="module">
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyB-4HmbvQ1HQKqDV9tOUPHsC47PbT5wWIo",
+            authDomain: "bookswapfinal-3022d.firebaseapp.com",
+            projectId: "bookswapfinal-3022d",
+            storageBucket: "bookswapfinal-3022d.appspot.com",
+            messagingSenderId: "453383890946",
+            appId: "1:453383890946:web:2395c5ca11b4298a2bdf1b"
+        };
+    
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const storage = firebase.storage();
+    
+        document.getElementById("addBookForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+    
+            try {
+                // Upload image if exists
+                let imageUrl = '';
+                const file = document.getElementById("bookCover").files[0];
+                if (file) {
+                    const storageRef = storage.ref();
+                    const fileRef = storageRef.child(`bookCovers/${Date.now()}_${file.name}`);
+                    await fileRef.put(file);
+                    imageUrl = await fileRef.getDownloadURL();
+                }
+    
+                // Add book data to Firestore
+                await db.collection("books").add({
+                    title: document.getElementById("bookName").value,
+                    author: document.getElementById("authorName").value,
+                    genre: document.getElementById("selectedGenre").value,
+                    description: document.getElementById("description").value,
+                    image: imageUrl,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+    
+                alert("Book added successfully!");
+                window.location.href = "welcome.html";
+            } catch (error) {
+                alert("Error adding book: " + error.message);
+            }
+        });
+    
+        // Rest of your existing genre selection and back button code
+    </script>
+
+    <script src="addBook.js"></script>
+</body>
+</html>

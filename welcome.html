@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | BookSwap</title>
+    <link rel="stylesheet" href="welcome.css">
+    <script src="welcome.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Add these above welcome.js script -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">📚 BookSwap</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Show All Books</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="addBook.html">Add Book</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <h1>Welcome to BookSwap, <span id="username">Reader!</span></h1>
+        <p>Find books, swap, and grow your collection!</p>
+    </header>
+
+    <!-- Suggested Books -->
+    <section class="suggestions">
+        <h2>📌 Personalized Suggestions for You</h2>
+        <div class="books-container">
+            <div class="book-card">
+                <img src="The alchemist.webp" alt="Book 1">
+                <h3>The Alchemist</h3>
+                <p>by Paulo Coelho</p>
+                <div class="book-details">
+                    <p><strong>Genre:</strong> Fiction, Philosophy</p>
+                    <p><strong>Published:</strong> 1988</p>
+                    <p><strong>Description:</strong> A mystical story about following your dreams.</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="Atomic Habits.webp" alt="Book 2">
+                <h3>Atomic Habits</h3>
+                <p>by James Clear</p>
+                <div class="book-details">
+                    <p><strong>Genre:</strong> Self-help, Productivity</p>
+                    <p><strong>Published:</strong> 2018</p>
+                    <p><strong>Description:</strong> A guide to building good habits and breaking bad ones.</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="The subtle art.webp" alt="Book 3">
+                <h3>The Subtle Art of Not Giving a F*ck</h3>
+                <p>by Mark Manson</p>
+                <div class="book-details">
+                    <p><strong>Genre:</strong> Self-help, Motivation</p>
+                    <p><strong>Published:</strong> 2016</p>
+                    <p><strong>Description:</strong> A counterintuitive approach to living a good life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Available Books -->
+    <section class="available-books">
+        <h2>📚 Available Books to Swap</h2>
+        <div class="books-container">
+            <div class="book-card">
+                <img src="RDPD.webp" alt="Book 4">
+                <h3>Rich Dad Poor Dad</h3>
+                <p>by Robert Kiyosaki</p>
+                <div class="book-details">
+                    <p><strong>Genre:</strong> Finance, Business</p>
+                    <p><strong>Published:</strong> 1997</p>
+                    <p><strong>Description:</strong> Lessons on financial independence and investment.</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="1984.webp" alt="Book 5">
+                <h3>1984</h3>
+                <p>by George Orwell</p>
+                <div class="book-details">
+                    <p><strong>Genre:</strong> Dystopian, Political Fiction</p>
+                    <p><strong>Published:</strong> 1949</p>
+                    <p><strong>Description:</strong> A warning about totalitarianism and surveillance.</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="TAGR.webp" alt="Book 6">
+                <h3>Think and Grow Rich</h3>
+                <p>by Napoleon Hill</p>
+                <div class="book-details">
+                    <p><strong>Genre:</strong> Personal Development</p>
+                    <p><strong>Published:</strong> 1937</p>
+                    <p><strong>Description:</strong> A classic guide to success and wealth-building.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Book Section -->
+    <div class="add-book">
+        <button onclick="window.location.href='addBook.html'">➕ Add Your Book</button>
+    </div>
+
+</body>
+</html>

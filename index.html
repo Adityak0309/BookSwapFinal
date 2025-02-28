@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookSwap - Swap & Share Books</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Firebase SDK -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  
+    // Your Firebase configuration (replace with your actual config)
+    const firebaseConfig = {
+      apiKey: "AIzaSyCr18qnVxrTYoe62_ldEU0gFqkOCRpptXM",
+      authDomain: "bookswap-91a02.firebaseapp.com",
+      projectId: "bookswap-91a02",
+      storageBucket: "bookswap-91a02.firebasestorage.app",
+      messagingSenderId: "907761944388",
+      appId: "1:907761944388:web:22a692837dc88c86ad7911"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    
+    // Make Firebase available globally
+    window.db = db;
+    window.firestoreCollection = collection;
+    window.addFirestoreDoc = addDoc;
+    window.getFirestoreDocs = getDocs;
+  </script>
+  
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">BookSwap</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="register.html" class="btn">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Swap. Share. Discover.</h1>
+            <p>Find books you love and give books a new life by swapping with like-minded readers.</p>
+            <a href="register.html" class="cta-btn">Get Started</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>What is BookSwap?</h2>
+        <p>BookSwap is a platform where book lovers can exchange books they own for books they desire.</p>
+    </section>
+
+    <section id="features" class="features">
+        <h2>Why Use BookSwap?</h2>
+        <div class="feature-cards">
+            <div class="card">📚 Wide Collection</div>
+            <div class="card">🔄 Easy Swapping</div>
+            <div class="card">🌍 Connect Globally</div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Users Say</h2>
+        <div class="review">"Best platform to swap books and find new reads!"</div>
+        <div class="review">"Made so many bookish friends here!"</div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 BookSwap.</p>
+    </footer>
+</body>
+</html>
